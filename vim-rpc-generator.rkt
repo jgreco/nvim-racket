@@ -41,7 +41,7 @@
         [parameters (map (λ (x) (string->symbol (vector-ref x 1))) 
                          (vector->list (hash-ref f "parameters")))])
     `(define/public (,(string->symbol name) ,@parameters)
-       (call ,name ,@parameters))))
+       (call/async ,name ,@parameters))))
 
 (write `(module vim-rpc racket
          (require nvim-racket/msgpack-rpc)
